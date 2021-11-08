@@ -7,6 +7,7 @@ AWS.config.update({
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const dynamodbTableName = 'product-inventory';
 
+//READ
 router.get('/', async (req, res) => {
   const params = {
     TableName: dynamodbTableName,
@@ -22,6 +23,7 @@ router.get('/', async (req, res) => {
   })
 })
 
+//READ (all)
 router.get('/all', async (req, res) => {
   const params = {
     TableName: dynamodbTableName
@@ -38,6 +40,7 @@ router.get('/all', async (req, res) => {
   }
 })
 
+//CREATE
 router.post('/', async (req, res) => {
   const params = {
     TableName: dynamodbTableName,
@@ -56,6 +59,7 @@ router.post('/', async (req, res) => {
   })
 })
 
+//UPDATE
 router.patch('/', async (req, res) => {
   const params = {
     TableName: dynamodbTableName,
@@ -101,6 +105,8 @@ router.delete('/', async (req, res) => {
     res.status(500).send(error);
   })
 })
+
+//Extra
 
 async function scanDynamoRecords(scanParams, itemArray) {
   try {

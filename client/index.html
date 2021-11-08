@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lange="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",
+    initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Web App</title>
+
+<body>
+
+    <div style="margin:100px;">
+   
+        class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <a class="navbar-brand" href="/">Express HTML</a>
+            <ul class="nav navbar-nav">
+              <li class="active">
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/about">About</a>
+              </li>
+              <li>
+                <a href="/sitemap">Sitemap</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+            <div class="jumbotron"  style="padding:40px;">
+              <h1>Hello, world!</h1>
+              <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+
+              <label>Name:</label>
+        <input type="text" id="name-input">
+        <button id="add-name-btn">Add Name</button>
+
+        <br><br><br>
+        <div>
+            <input placeholder="search by id" id="search-input">
+            <button id="search-btn">Search</button> 
+        </div>
+
+        <table id="table">
+            <thead> 
+                <th>ID</th>
+                <th>Color</th>
+                <th>Price</th>
+                <!-- <th>Delete</th>
+                <th>Edit</th>  -->
+            </thead>
+            <tbody></tbody> <!-- dynamically inserted using JS -->
+        </table>
+
+            </div>
+          </div>
+
+    <main>
+        
+
+        <!-- <section hidden id="update-row">
+            <label>Name:</label>
+            <input type="text" id="update-name-input">
+            <button id="update-row-btn">Update</button>
+        </section> -->
+
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
