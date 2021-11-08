@@ -18,8 +18,8 @@ app.use('/product', productRouter);
 // });
 
 app.get('/', (req, res) => {
-  res.send('<h1>Node.js CRUD API</h1> <h4>Message: Success</h4><p>Version: 1.0</p>');
-  //res.sendFile(path.join(__dirname+'/client/index.html'));
+  //res.send('<h1>Node.js CRUD API</h1> <h4>Message: Success</h4><p>Version: 1.0</p>');
+  res.sendFile(path.join(__dirname+'/client/index.html'));
 })
 
 app.get('/health', (req, res) => {
