@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 const productRouter = require('./routes/product');
 
 app.use(express.json());
+app.use(express.static(__dirname+'/client/stylesheet.css'));
 app.use('/product', productRouter); // /product is actually ./routers/product
 
 
