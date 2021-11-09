@@ -7,6 +7,8 @@ AWS.config.update({
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const dynamodbTableName = 'product-inventory';
 
+// router.get, router.post, router.patch, router.delete
+
 //READ
 router.get('/', async (req, res) => {
   const params = {

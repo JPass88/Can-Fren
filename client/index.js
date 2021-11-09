@@ -1,8 +1,8 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//         fetch('http://localhost:5000/getAll')
-//         .then(response => response.json())
-//         .then(data => loadHTMLTable(data['data']));    
-//     });
+ document.addEventListener('DOMContentLoaded', function () {
+         fetch('http://localhost:5000/getAll')
+         .then(response => response.json())
+         .then(data => loadHTMLTable(data['data']));    
+});
     
 //     // document.querySelector('table tbody').addEventListener('click', function(event) {
 //     //     console.log(event.target);
@@ -17,7 +17,7 @@
 //     // });
     
 //     // const updateBtn = document.querySelector('#update-row-btn');
-//     const searchBtn = document.querySelector('#search-btn');
+     
     
 //     searchBtn.onclick = function() { // callback function
 //         const searchValue = document.querySelector('#search-input').value;
@@ -73,6 +73,22 @@
 //     // }
     
 //     const addBtn = document.querySelector('#add-name-btn');
+const lrnBtn = document.querySelector('#learn-btn');
+lrnBtn.onclick = function () {
+            //const nameInput = document.querySelector('#name-input');
+            const productId = 10001;
+            //nameInput.value = "";
+        
+            fetch('http://tutorialnodejscrudapi-env.eba-2brrvexc.us-east-2.elasticbeanstalk.com/product', {
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                method: 'GET',
+                body: JSON.stringify({ productId : productId})
+            })
+            .then(response => response.json())
+            .then(data => insertRowIntoTable(data['data']));
+        }
     
 //     addBtn.onclick = function () {
 //         const nameInput = document.querySelector('#name-input');
@@ -90,54 +106,52 @@
 //         .then(data => insertRowIntoTable(data['data']));
 //     }
     
-//     function insertRowIntoTable(data) {
-//         console.log(data);
-//         const table = document.querySelector('table tbody');
-//         const isTableData = table.querySelector('.no-data'); // checks if table is from no-data class
+    function insertRowIntoTable(data) {
+        console.log(data);
+        const table = document.querySelector('table tbody');
+        const isTableData = table.querySelector('.no-data'); // checks if table is from no-data class
     
-//         let tableHtml = "<tr>";
+        let tableHtml = "<tr>";
     
-//         for (var key in data) {  // loop through array
-//             if (data.hasOwnProperty(key)) {    // if key has a..
-//                 if (key === 'dateAdded') {     // ..date added
-//                     data[key] = new Date(data[key]).toLocaleString(); 
-//                 }
-//                 tableHtml += `<td>${data[key]}</td>`; //add to table's HTML
-//             }
-//         }
+        for (var key in data) {  // loop through array
+            if (data.hasOwnProperty(key)) {    // if key has a..
+                if (key === 'dateAdded') {     // ..date added
+                    data[key] = new Date(data[key]).toLocaleString(); 
+                }
+                tableHtml += `<td>${data[key]}</td>`; //add to table's HTML
+            }
+        }
     
-//         tableHtml += `<td><button class="delete-row-btn" data-id=${data.id}>Delete</td>`;
-//         tableHtml += `<td><button class="edit-row-btn" data-id=${data.id}>Edit</td>`;
+        // tableHtml += `<td><button class="delete-row-btn" data-id=${data.id}>Delete</td>`;
+        // tableHtml += `<td><button class="edit-row-btn" data-id=${data.id}>Edit</td>`;
     
-//         tableHtml += "</tr>";
+        tableHtml += "</tr>";
     
-//         if (isTableData) { // if table is empty..set table to all new HTML
-//             table.innerHTML = tableHtml;
-//         } else {           // else, add HTML to innerHTML
-//             const newRow = table.insertRow();
-//             newRow.innerHTML = tableHtml;
-//         }
-//     }
+        if (isTableData) { // if table is empty..set table to all new HTML
+            table.innerHTML = tableHtml;
+        } else {           // else, add HTML to innerHTML
+            const newRow = table.insertRow();
+            newRow.innerHTML = tableHtml;
+        }
+    }
     
-//     function loadHTMLTable(data) {
-//         const table = document.querySelector('table tbody');
+    function loadHTMLTable(data) {
+        const table = document.querySelector('table tbody');
     
-//         if (data.length === 0) {
-//             table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
-//             return;
-//         }
+        if (data.length === 0) {
+            table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
+            return;
+        }
     
-//         let tableHtml = "";
+        let tableHtml = "";
     
-//         data.forEach(function ({id, name, date_added}) {
-//             tableHtml += "<tr>";
-//             tableHtml += `<td>${id}</td>`;
-//             tableHtml += `<td>${name}</td>`;
-//             tableHtml += `<td>${new Date(date_added).toLocaleString()}</td>`;
-//             tableHtml += `<td><button class="delete-row-btn" data-id=${id}>Delete</td>`;
-//             tableHtml += `<td><button class="edit-row-btn" data-id=${id}>Edit</td>`;
-//             tableHtml += "</tr>";
-//         });
+        data.forEach(function ({id, color, price}) {
+            tableHtml += "<tr>";
+            tableHtml += `<td>${id}</td>`;
+            tableHtml += `<td>${color}</td>`;
+            tableHtml += `<td>${price}</td>`;            
+            tableHtml += "</tr>";
+        });
     
-//         table.innerHTML = tableHtml;
-//     }
+        table.innerHTML = tableHtml;
+    }
