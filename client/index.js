@@ -79,7 +79,7 @@ lrnBtn.onclick = function () {
             const productId = 10001;
             //nameInput.value = "";
         
-            fetch('http://tutorialnodejscrudapi-env.eba-2brrvexc.us-east-2.elasticbeanstalk.com/product', {
+            fetch('http://tutorialnodejscrudapipipe-env.eba-ac7mk4vc.us-east-2.elasticbeanstalk.com/product', {
                 headers: {
                     'Content-type': 'application/json'
                 },
