@@ -1,5 +1,5 @@
  document.addEventListener('DOMContentLoaded', function () {
-         fetch('http://tutorialnodejscrudapipipe-env.eba-ac7mk4vc.us-east-2.elasticbeanstalk.com/getAll')
+         fetch('http://tutorialnodejscrudapipipe-env.eba-ac7mk4vc.us-east-2.elasticbeanstalk.com')
          .then(response => response.json())
          .then(data => loadHTMLTable(data['data']));    
 });
@@ -73,7 +73,7 @@
 //     // }
     
 //     const addBtn = document.querySelector('#add-name-btn');
-const lrnBtn = document.querySelector('#learn-btn');
+const lrnBtn = document.querySelector('#search-btn');
 lrnBtn.onclick = function () {
             //const nameInput = document.querySelector('#name-input');
             const productId = 10001;
