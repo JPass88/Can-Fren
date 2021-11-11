@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -82,14 +82,70 @@
                   .then( myJson =>
                   {
                       console.log( JSON.stringify( myJson ) );
+                      console.log(myJson.color);
+                      console.log( JSON.stringify( myJson.color)) ;
                   } )
                   .catch( err =>
                   {
                       console.log( 'Fetch Error :-S', err );
                   } );
+
+              
           }
+
+        function insertRowIntoTable(data) {
+          console.log(data);
+          const table = document.querySelector('table tbody');
+          const isTableData = table.querySelector('.no-data'); // checks if table is from no-data class
+      
+          let tableHtml = "<tr>";
+      
+          for (var key in data) {  // loop through array
+              if (data.hasOwnProperty(key)) {    // if key has a..
+                  if (key === 'dateAdded') {     // ..date added
+                      data[key] = new Date(data[key]).toLocaleString(); 
+                  }
+                  tableHtml += `<td>${data[key]}</td>`; //add to table's HTML
+              }
+          }
+    
+            // tableHtml += `<td><button class="delete-row-btn" data-id=${data.id}>Delete</td>`;
+            // tableHtml += `<td><button class="edit-row-btn" data-id=${data.id}>Edit</td>`;
+        
+            tableHtml += "</tr>";
+        
+            if (isTableData) { // if table is empty..set table to all new HTML
+                table.innerHTML = tableHtml;
+            } else {           // else, add HTML to innerHTML
+                const newRow = table.insertRow();
+                newRow.innerHTML = tableHtml;
+            }
+        }
+    
+        function loadHTMLTable(data) {
+            const table = document.querySelector('table tbody');
+        
+            if (data.length === 0) {
+                table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
+                return;
+            }
+        
+            let tableHtml = "";
+        
+            data.forEach(function ({id, color, price}) {
+                tableHtml += "<tr>";
+                tableHtml += `<td>${id}</td>`;
+                tableHtml += `<td>${color}</td>`;
+                tableHtml += `<td>${price}</td>`;            
+                tableHtml += "</tr>";
+            });
+        
+            table.innerHTML = tableHtml;
+        }
+
       </script>
-          <button id='getData' onclick="GetData()">Get Data</button>
+      
+      <button id='getData' onclick="GetData()">Get Data</button>
 
         <!-- END OF TEST -->
 
