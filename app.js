@@ -8,7 +8,8 @@ const productRouter = require('./routes/product');
 app.use(express.json());
 app.use(express.static(__dirname+'/client/stylesheet.css'));
 app.use('/product', productRouter); // /product is actually ./routers/product
-
+//NEW
+app.use('/client', express.static(__dirname + '/client'));
 
 /*  Get with Parameters  
 
@@ -32,7 +33,7 @@ app.use('/product', productRouter); // /product is actually ./routers/product
 
 // GET homepage method route
 app.get('/', (req, res) => {
-  //res.send('<h1>Node.js CRUD API</h1> <h4>Message: Success</h4><p>Version: 1.0</p>');
+  //OLD  
   res.sendFile(__dirname+'/client/index.html');
 })
 
