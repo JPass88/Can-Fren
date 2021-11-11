@@ -1,3 +1,3 @@
 function testFunc() {
-    alert("testtting")
+    alert("testtting");
 }
