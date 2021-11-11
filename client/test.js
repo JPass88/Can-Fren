@@ -2,11 +2,14 @@ function testFunc() {
     alert("testtting");        
 }
 
-
-const searchButton = document.querySelector('#search-btn');
-const searchInput = document.querySelector('#search-input');  
- 
-//searchInput.value = "";
-searchButton.onclick = function (searchInput) {
+function testtFunc() {
+    var variable = document.getElementById('search-input').value;
     alert("testtting "+searchInput);           
 }
+
+
+ 
+//searchInput.value = "";
+// searchButton.onclick = function () {
+//     const searchInput = document.querySelector('#search-input');      
+// }
