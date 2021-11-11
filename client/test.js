@@ -4,7 +4,7 @@ function testFunc() {
 
 function testtFunc() {
     var variable = document.getElementById('search-input').value;
-    alert("testtting "+searchInput);           
+    alert("testtting "+variable);           
 }
 
 
