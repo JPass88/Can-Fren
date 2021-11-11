@@ -36,6 +36,12 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname+'/client/index.html');
 })
 
+// GET testJS route
+app.get('/test.js', (req, res) => {
+  //res.send('<h1>Node.js CRUD API</h1> <h4>Message: Success</h4><p>Version: 1.0</p>');
+  res.sendFile(__dirname+'/client/test.js');
+})
+
 // GET product method route
 // This is a GET request for product
 app.get("/product", (req, res) => {
