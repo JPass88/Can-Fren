@@ -1,12 +1,12 @@
-
 function testFunc() {
     alert("testtting");        
 }
 
 
-const srchBtn = document.querySelector('#search-btn');
-const srchInput = document.querySelector('#search-input');  
- //nameInput.value = "";
-srchBtn.onclick = function (srchInput) {
-    alert("testtting "+test);           
+const searchButton = document.querySelector('#search-btn');
+const searchInput = document.querySelector('#search-input');  
+ 
+//searchInput.value = "";
+searchButton.onclick = function (searchInput) {
+    alert("testtting "+searchInput);           
 }
